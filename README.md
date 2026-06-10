@@ -1,2 +1,13 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/stronty/java-project-78/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/stronty/java-project-78/actions)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=bugs)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=coverage)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=stronty_java-project-782&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=stronty_java-project-782)
