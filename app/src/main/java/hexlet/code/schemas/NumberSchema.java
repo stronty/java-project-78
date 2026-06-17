@@ -34,7 +34,7 @@ public class NumberSchema extends BaseSchema<Integer> {
 
     @Override
     public boolean isValid(Integer num) {
-        if (required && num == null) {
+        if (required && (num == null || num == 0)) {
             return false;
         } else if (num == null) {
             return true;
