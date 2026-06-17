@@ -2,10 +2,10 @@
 import hexlet.code.Validator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import schemas.MapSchema;
-import schemas.NumberSchema;
-import schemas.Schema;
-import schemas.StringSchema;
+import hexlet.code.schemas.MapSchema;
+import hexlet.code.schemas.NumberSchema;
+import hexlet.code.schemas.BaseSchema;
+import hexlet.code.schemas.StringSchema;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,16 +20,16 @@ public class ShemasTests {
     private StringSchema stringSchema;
 
     private MapSchema mapSchema;
-    private Map<String, Schema<Integer>> numSchemas;
-    private Map<String, Schema<String>> stringSchemas;
+    private Map<String, BaseSchema<Integer>> numSchemas;
+    private Map<String, BaseSchema<String>> stringSchemas;
 
     @BeforeEach
     void prepare() {
         numSchema = v.number();
         stringSchema = v.string();
         mapSchema = v.map();
-        numSchemas = new HashMap<String, Schema<Integer>>();
-        stringSchemas = new HashMap<String, Schema<String>>();
+        numSchemas = new HashMap<String, BaseSchema<Integer>>();
+        stringSchemas = new HashMap<String, BaseSchema<String>>();
     }
 
     @Test

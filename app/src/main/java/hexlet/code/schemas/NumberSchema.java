@@ -1,6 +1,6 @@
-package schemas;
+package hexlet.code.schemas;
 
-public class NumberSchema extends Schema<Integer> {
+public class NumberSchema extends BaseSchema<Integer> {
 
     private boolean positive;
     private int min;

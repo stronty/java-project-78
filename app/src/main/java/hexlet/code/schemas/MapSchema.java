@@ -1,14 +1,14 @@
-package schemas;
+package hexlet.code.schemas;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapSchema extends Schema<Map<?, ?>> {
+public class MapSchema extends BaseSchema<Map<?, ?>> {
 
     private int size;
     private boolean hasStrictSize;
     private boolean checkInside;
-    private Map<?, Schema<?>> schema;
+    private Map<?, BaseSchema<?>> schema;
 
     @Override
     public MapSchema required() {
@@ -23,13 +23,13 @@ public class MapSchema extends Schema<Map<?, ?>> {
         return this;
     }
 
-    public void shape(Map<?, ? extends Schema<?>> schema) {
+    public void shape(Map<?, ? extends BaseSchema<?>> schema) {
         checkInside = true;
         this.schema = new HashMap<>(schema);
     }
 
-    private static boolean validate(Schema<?> schema, Object value) {
-        return ((Schema<Object>) schema).isValid(value);
+    private static boolean validate(BaseSchema<?> baseSchema, Object value) {
+        return ((BaseSchema<Object>) baseSchema).isValid(value);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MapSchema extends Schema<Map<?, ?>> {
             return false;
         }
         if (checkInside) {
-            for (Map.Entry<?, Schema<?>> entry : schema.entrySet()) {
+            for (Map.Entry<?, BaseSchema<?>> entry : schema.entrySet()) {
                 var key = entry.getKey();
                 Object value = content.get(key);
 
