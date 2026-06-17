@@ -1,15 +1,18 @@
 package schemas;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class MapSchema extends Schema<MapSchema, Map>{
-    private boolean notNull;
+public class MapSchema extends Schema<Map<?, ?>> {
+
     private int size;
     private boolean hasStrictSize;
+    private boolean checkInside;
+    private Map<?, Schema<?>> schema;
 
     @Override
     public MapSchema required() {
-        notNull = true;
+        required = true;
         return this;
     }
 
@@ -20,15 +23,32 @@ public class MapSchema extends Schema<MapSchema, Map>{
         return this;
     }
 
+    public void shape(Map<?, ? extends Schema<?>> schema) {
+        checkInside = true;
+        this.schema = new HashMap<>(schema);
+    }
+
+    private static boolean validate(Schema<?> schema, Object value) {
+        return ((Schema<Object>) schema).isValid(value);
+    }
+
     @Override
     public boolean isValid(Map content) {
-        if (notNull && content == null) {
+        if (required && (content == null ||  content.isEmpty())) {
             return false;
-        } else if (content == null) {
-            return true;
         }
-        if(hasStrictSize && content.size() != size) {
+        if (hasStrictSize && content.size() != size) {
             return false;
+        }
+        if (checkInside) {
+            for (Map.Entry<?, Schema<?>> entry : schema.entrySet()) {
+                var key = entry.getKey();
+                Object value = content.get(key);
+
+                if (!validate(schema.get(key), value)) {
+                    return false;
+                }
+            }
         }
         return true;
     }

@@ -1,8 +1,7 @@
 package schemas;
 
-public class NumberSchema extends Schema<NumberSchema, Integer>{
+public class NumberSchema extends Schema<Integer> {
 
-    private boolean notNull;
     private boolean positive;
     private int min;
     private int max;
@@ -14,7 +13,7 @@ public class NumberSchema extends Schema<NumberSchema, Integer>{
 
     @Override
     public NumberSchema required() {
-        notNull = true;
+        required = true;
 
         return this;
     }
@@ -35,15 +34,15 @@ public class NumberSchema extends Schema<NumberSchema, Integer>{
 
     @Override
     public boolean isValid(Integer num) {
-        if(notNull && num == null) {
+        if (required && num == null) {
             return false;
         } else if (num == null) {
             return true;
         }
-        if(positive && num < 0 ) {
+        if (positive && num < 0) {
             return false;
         }
-        if(hasRange && (num <= min && num >= max)) {
+        if (hasRange && (num < min || num > max)) {
             return false;
         }
 

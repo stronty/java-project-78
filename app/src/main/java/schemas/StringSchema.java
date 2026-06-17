@@ -1,10 +1,11 @@
 package schemas;
 
-public class StringSchema extends Schema<StringSchema, String> {
-    private boolean notNull;
+public class StringSchema extends Schema<String> {
+
     private int length;
-    private String REGX;
-    private boolean hasREGX;
+    private String regex;
+    private boolean hasRegex;
+    private boolean hasLength;
 
     public StringSchema() {
 
@@ -12,31 +13,34 @@ public class StringSchema extends Schema<StringSchema, String> {
 
     @Override
     public StringSchema required() {
-        notNull = true;
+        required = true;
         return this;
     }
 
     public StringSchema minLength(int length) {
+        hasLength = true;
         this.length = length;
         return this;
     }
 
-    public StringSchema contains(String mustContainREGX) {
-        this.REGX = mustContainREGX;
-        hasREGX = true;
+    public StringSchema contains(String regex) {
+        this.regex = regex;
+        hasRegex = true;
         return this;
     }
 
     @Override
     public boolean isValid(String content) {
 
-        if(notNull && content.isEmpty()) {
+        if (required && (content == null || content.isEmpty())) {
+            return false;
+        } else if (content == null || content.isEmpty()) {
+            return  true;
+        }
+        if (content.length() < length) {
             return false;
         }
-        if(content.length() < length) {
-            return false;
-        }
-        if(hasREGX && content.contains(REGX)) {
+        if (hasRegex && !content.contains(regex)) {
             return false;
         }
 
