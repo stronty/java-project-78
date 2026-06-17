@@ -6,14 +6,16 @@ import schemas.StringSchema;
 
 public class Validator {
 
-    public static StringSchema string() {
+    public StringSchema string() {
         return new StringSchema();
     }
-    public static NumberSchema number() {
+
+    public NumberSchema number() {
         return new NumberSchema();
     }
 
-    public static MapSchema map() {
+    public MapSchema map() {
         return new MapSchema();
     }
+
 }
