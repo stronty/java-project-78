@@ -34,10 +34,8 @@ public class MapSchema extends BaseSchema<Map<?, ?>> {
 
     @Override
     public boolean isValid(Map content) {
-        if (required && (content == null)) {
+        if (required && (content == null ||  content.isEmpty())) {
             return false;
-        } else if (content == null || content.isEmpty()) {
-            return !(hasStrictSize || checkInside);
         }
         if (hasStrictSize && content.size() != size) {
             return false;

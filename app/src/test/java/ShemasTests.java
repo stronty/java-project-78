@@ -35,7 +35,7 @@ public class ShemasTests {
     @Test
     void mapSchemaRequiredTest() {
         assertTrue(mapSchema.isValid(stringSchemas));
-        assertTrue(mapSchema.required().isValid(stringSchemas));
+        assertFalse(mapSchema.required().isValid(stringSchemas));
     }
     @Test
     void mapSchemaSizeTest() {
@@ -128,4 +128,3 @@ public class ShemasTests {
     }
 
 }
-
