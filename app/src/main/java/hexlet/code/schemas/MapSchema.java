@@ -18,7 +18,7 @@ public class MapSchema extends BaseSchema<Map<?, ?>> {
     }
 
     public boolean isEmpty(Map<?, ?> value) {
-        return value == null || value.isEmpty();
+        return value == null;
     }
 
     public MapSchema shape(Map<?, ? extends BaseSchema<?>> schema) {
